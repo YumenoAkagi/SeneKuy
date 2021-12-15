@@ -10,32 +10,43 @@
 </head>
 <body class="h-100">
     @yield('header')
-    <header class="d-flex flex-wrap justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a href="/home" class="text-decoration-none d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark">
-            <span class="fs-4">SeneKuy</span>
-        </a>
-
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li>
-                <a href="/home" class="nav-link px- link-dark">Home</a>
-            </li>
-            <li>
-
-            </li>
-            <li>
-
-            </li>
-        </ul>
-
-        <div class="col-md-3 text-end">
-            <a href="/login" class="text-decoration-none">
-                <button class="btn btn-outline-dark me-2">Login</button>
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/home" class="text-decoration-none d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark">
+                <span class="fs-4">SeneKuy</span>
             </a>
-            <a href="/register" class="text-decoration-none">
-                <button class="btn btn-warning">Register</button>
-            </a>
-        </div>
-    </header>
+    
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                    <a href="/home" class="nav-link px- link-dark">Home</a>
+                </li>
+    
+                <li class="nav-item-dropdown">
+                    <a href="" class="dropdown-toggle nav-link link-dark" role="button" id="categoryDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="categoryDropdownMenuLink">
+                        <li><a href="" class="dropdown-item">Cat 1</a></li>
+                        <li><a href="" class="dropdown-item">Cat 2</a></li>
+                        <li><a href="" class="dropdown-item">Cat 3</a></li>
+                    </ul>
+                </li>
+                <li>
+    
+                </li>
+            </ul>
+    
+            <div class="col-md-3 text-end">
+                <a href="/login" class="text-decoration-none">
+                    <button class="btn btn-outline-dark me-2">Login</button>
+                </a>
+                <a href="/register" class="text-decoration-none">
+                    <button class="btn btn-warning">Register</button>
+                </a>
+            </div>
+        </header>
+    </div>
+    
 
     <main>
         @yield('content')
