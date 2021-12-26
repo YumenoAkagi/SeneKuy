@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body class="h-100">
+    @yield('header')
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a href="/home" class="text-decoration-none d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark">
@@ -32,40 +33,24 @@
                     </ul>
                 </li>
             </ul>
-
-            
-            <div class="col-md-3 col-lg-2">
-                @auth
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Welcome, {{auth()->user()->lastName}}
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                            <form action="/logout" method="POST">
-                            @csrf
-                            <button type="submit" class="dropdown-item">Logout</button>
-                        </form>
-                    </li>
-                </ul>
-                @else
+    
+            <div class="col-md-3 col-lg-2 text-end">
                 <a href="/login" class="text-decoration-none">
                     <button class="btn btn-outline-dark me-2">Login</button>
                 </a>
                 <a href="/register" class="text-decoration-none">
                     <button class="btn btn-warning">Register</button>
                 </a>
-                @endauth
             </div>
         </header>
     </div>
     
 
-    <div>
+    <main>
         @yield('content')
-    </div>
+    </main>
 
+    @yield('footer')
     <footer class="footer mt-auto py-2 text-center">
         SeneKuy © 2021
     </footer>
