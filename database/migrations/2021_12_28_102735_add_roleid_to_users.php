@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionheadersTable extends Migration
+class AddRoleidToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateTransactionheadersTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactionheaders', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('role_id')
+            ->constrained('users')
+            ->restrictOnDelete()
+            ->cascadeOnUpdate();
         });
     }
 
@@ -28,6 +28,8 @@ class CreateTransactionheadersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactionheaders');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role_id');
+        });
     }
 }

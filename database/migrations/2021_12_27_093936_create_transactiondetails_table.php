@@ -15,12 +15,10 @@ class CreateTransactiondetailsTable extends Migration
     {
         Schema::create('transactiondetails', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('transaction_id')
-            ->constrained('transactionheaders')
-            ->restrictOnDelete()
-            ->restrictOnUpdate();
-            $table->foreignId('product_id')
-            ->constrained('products');
+            $table->bigInteger('transaction_id')->unsigned();
+            $table->foreign('transaction_id')->references('id')->on('transactionheaders');
+            $table->bigInteger('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity');
             $table->timestamps();
         });
