@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             ->restrictOnDelete()
             ->cascadeOnUpdate();
             $table->string('name');
-            $table->string('price');
+            $table->integer('price');
             $table->string('imgPath');
             $table->timestamps();
         });
