@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function transactionHeaders() {
         return $this->belongsToMany('transactionheaders');
     }
+
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
 }
