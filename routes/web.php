@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -20,7 +21,7 @@ use App\Http\Controllers\UsersController;
 
 Route::redirect('/', '/home');
 
-Route::get('/home', [UserController::class , 'showHome'])->name('home.list');
+Route::get('/home', [HomeController::class , 'showHome'])->name('home.list');
 
 Route::get('/category/{category_id}', [UserController::class , 'showProductCategory']);
 

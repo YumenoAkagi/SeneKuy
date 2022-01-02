@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body class="h-100">
+<body class="d-flex flex-column">
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a href="/home" class="text-decoration-none d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark">
@@ -62,9 +62,9 @@
     </div>
     
 
-    <div>
+    <main class="flex-shrink-0">
         @yield('content')
-    </div>
+    </main>
 
     <footer class="footer mt-auto py-2 text-center">
         SeneKuy © 2021
