@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body class="d-flex flex-column">
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    {{-- <div class="container"> --}}
+        {{-- <header class="d-flex flex-wrap  py-3 mb-4 border-bottom">
             <a href="/home" class="text-decoration-none d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark">
                 <span class="fs-4">SeneKuy</span>
             </a>
-    
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+
+            <ul class="nav col-12 col-md-auto mb-2  mb-md-0 me-auto">
                 <li>
                     <a href="/home" class="nav-link px- link-dark">Home</a>
                 </li>
-    
+
                 <li class="nav-item-dropdown">
                     <a href="" class="dropdown-toggle nav-link link-dark" role="button" id="categoryDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         Category
@@ -31,10 +31,63 @@
                         <li><a href="" class="dropdown-item">Cat 3</a></li>
                     </ul>
                 </li>
-            </ul>
+            </ul> --}}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
+                <div class="container">
+                  <a class="navbar-brand" href="#">Snekku Logo</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Category
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">cat 1</a></li>
+                          <li><a class="dropdown-item" href="#">cat 2</a></li>
+                          <li><a class="dropdown-item" href="#">cat 3</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                      </li>
+                    </ul>
+                  </div>
 
-            
-            <div class="col-md-3 col-lg-2">
+                  <div class="cart-and-wish d-flex justify-content-between pe-4">
+                      <div class="wish-button">
+                        <a href=""><img src="{{asset('assets/heart.png')}}" alt=""></a>
+                      </div>
+                      <div class="cart-button">
+                        <a href=""><img src="{{asset('assets/cart.png')}}" alt=""></a>
+                      </div>
+                  </div>
+
+                  <div class="profile-icon ps-2">
+                    <div class="btn-group">
+                        <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img src="{{asset('assets/user.png')}}" alt="">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">View Profile</a></li>
+                            <li><a class="dropdown-item" href="#">History Transaction</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item fw-bold" href="#">Login or Register</a></li>
+                        </ul>
+                      </div>
+
+                  </div>
+                </div>
+              </nav>
+
+
+
+            {{-- <div class="col-md-3 col-lg-2">
                 @auth
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Welcome, {{auth()->user()->lastName}}
@@ -57,16 +110,16 @@
                     <button class="btn btn-warning">Register</button>
                 </a>
                 @endauth
-            </div>
-        </header>
-    </div>
-    
+            </div> --}}
+        {{-- </header> --}}
+    {{-- </div> --}}
+
 
     <main class="flex-shrink-0">
         @yield('content')
     </main>
 
-    <footer class="footer mt-auto py-2 text-center">
+    <footer class="footer mt-auto py-2 text-center fw-bold">
         SeneKuy © 2021
     </footer>
 </body>
