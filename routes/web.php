@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,8 @@ use App\Http\Controllers\UsersController;
 
 Route::redirect('/', '/home');
 
-Route::get('/home', [HomeController::class , 'showHome'])->name('home.list');
+// Route::get('/home', [HomeController::class , 'showHome'])->name('home.list');
+Route::get('/home', [HomeController::class, 'showProduct'])->name('home');
 
 Route::get('/category/{category_id}', [UserController::class , 'showProductCategory']);
 
@@ -39,3 +41,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/product/details/{productId}', [ProductDetailController::class, 'getProductDetails'])->name('productDetail');
+
+Route::get('/aboutus', function(){
+    return view('aboutUs');
+})->name('aboutus');

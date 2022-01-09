@@ -12,13 +12,13 @@
 <body class="d-flex flex-column">
     {{-- <div class="container"> --}}
         {{-- <header class="d-flex flex-wrap  py-3 mb-4 border-bottom">
-            <a href="/home" class="text-decoration-none d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark">
+            <a href="{{route('home.list')}}" class="text-decoration-none d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark">
                 <span class="fs-4">SeneKuy</span>
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2  mb-md-0 me-auto">
                 <li>
-                    <a href="/home" class="nav-link px- link-dark">Home</a>
+                    <a href="{{route('home.list')}}" class="nav-link px- link-dark">Home</a>
                 </li>
 
                 <li class="nav-item-dropdown">
@@ -34,14 +34,14 @@
             </ul> --}}
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
                 <div class="container">
-                  <a class="navbar-brand" href="#">Snekku Logo</a>
+                  <a class="navbar-brand" href="{{route('home')}}">Snekku Logo</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
                       </li>
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +54,7 @@
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="{{route('aboutus')}}">About Us</a>
                       </li>
                     </ul>
                   </div>

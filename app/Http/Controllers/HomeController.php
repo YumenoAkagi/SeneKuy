@@ -22,6 +22,11 @@ class HomeController extends Controller
         return view('category', ['category' => $ProductCategory]);
     }
 
+    public function showProduct(){
+        $productList = Product::all();
+        return view('home', ['products'=>$productList]);
+    }
+
     public function showTransaction($product_id)
     {
         $transaction = Product::join('categories', 'categories.id', '=', 'products.category_id')
