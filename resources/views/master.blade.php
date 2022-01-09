@@ -77,7 +77,7 @@
                             <li><a class="dropdown-item" href="#">View Profile</a></li>
                             <li><a class="dropdown-item" href="#">History Transaction</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item fw-bold" href="#">Login or Register</a></li>
+                            <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Login or Register</a></li>
                         </ul>
                       </div>
 

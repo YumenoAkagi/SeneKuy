@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,13 +23,14 @@ class RegisterController extends Controller
             'lastName' => 'required',
             'phoneNumber' => 'required',
             'email' => 'required|email:dns',
-            'password' => 'required|min:8',
-            'confirmPassword' => 'required'
+            'password' => 'required|confirmed|min:8',
+            'password_confirmation' => 'required'
         ]);
 
-        // dd('registrasi berhasil');
+        
+
         $validatedData['password'] = bcrypt($validatedData['password']);
-        // $validatedData['confirmPassword'] = bcrypt($validatedData['confirmPassword']);
+        // dd($validatedData, $cust_role_id);
         User::create($validatedData);
         return redirect('/login')->with('success', 'Registration success!');
     }

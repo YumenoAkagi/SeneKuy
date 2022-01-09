@@ -83,30 +83,30 @@
                                 </div>
 
                                 <div class="form-group mb-4">
-                                    <label for="confirmPassword">Confirm Password</label>
-                                    <input type="Password" class="form-control @error('confirmPassword') is-invalid @enderror" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
+                                    <label for="password_confirmation">Confirm Password</label>
+                                    <input type="Password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required>
                                     @error('confirmPassword')
                                     <div class="invalid-feedback">
                                         {{$message}}
                                     </div>
                                     @enderror
-                                    <!-- @if(('confirmPassword') != ('password'))
-                                    <div class="invalid-feedback">
-                                        Password does not match
-                                    </div>
-                                    @endif -->
                                 </div>
     
                                 <div class="d-grid mb-4">
                                     <button type="submit" class="btn btn-block btn-lg btn-dark">Register</button>
                                 </div>
 
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <!-- <div class="form-check">
+                                    <input class="form-check-input @error('flexCheckDefault') is-invalid @enderror" type="checkbox" value="" id="flexCheckDefault" name="flexCheckDefault">
                                     <label class="form-check-label" for="flexTermsAndCondition">
                                     Agree to the <a href="" class="link-secondary">Terms & Condition</a>
                                     </label>
-                                </div>
+                                    @error('flexCheckDefault')
+                                    <div class="invalid-feedback">
+                                        You need to agree with the terms & condition
+                                    </div>
+                                    @enderror
+                                </div> -->
                             </form>
                             <p class="mt-2">
                                 Already registered?

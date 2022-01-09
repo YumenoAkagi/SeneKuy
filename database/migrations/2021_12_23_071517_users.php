@@ -20,7 +20,6 @@ class Users extends Migration
             $table->string('phoneNumber');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('confirmPassword');
             $table->rememberToken();
             $table->timestamps();
         });
