@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="product-detail-card">
                                     <strong>{{$product->name}}</strong>
-                                    <p>Price : Rp. {{$product->price}}</p>
+                                    <p>Rp. {{$product->price}}</p>
                                 </div>
                             </div>
                         </a>
