@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Auth\Support\Facades\Auth;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -21,18 +20,17 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        if(FacadesAuth::attempt($credentials)){
+        if(Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])){
             $request->session()->regenerate();
             return redirect()->intended('/home');
         }
 
         return back()->with('loginError', 'Login failed!');
-
-        // dd('berhasil login');
     }
 
     public function logout(Request $request){
-        FacadesAuth::logout();
+        Auth::logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
