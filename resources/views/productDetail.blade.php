@@ -13,6 +13,8 @@
                 <br>
                 Rp. {{$product->category_id}}
                 <div class="button" style="margin-top: 3em;">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
                     <span class="addToCart" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em 1em 1em 0;">
                         <a href="#" style="text-decoration: none; color: black;">Add to cart</a>
                     </span>
