@@ -47,3 +47,7 @@ Route::get('/product/details/{productId}', [ProductDetailController::class, 'get
 Route::get('/aboutus', function(){
     return view('aboutUs');
 })->name('aboutus');
+
+Route::get('/shoppingcart', function(){
+    return view('shoppingCart');
+})->name('shoppingcart');

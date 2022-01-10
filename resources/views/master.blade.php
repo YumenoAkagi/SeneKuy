@@ -47,7 +47,7 @@
                         <a href=""><img src="{{asset('assets/heart.png')}}" alt=""></a>
                       </div>
                       <div class="cart-button">
-                        <a href=""><img src="{{asset('assets/cart.png')}}" alt=""></a>
+                        <a href="{{route('shoppingcart')}}"><img src="{{asset('assets/cart.png')}}" alt=""></a>
                       </div>
                   </div>
 

@@ -24,6 +24,10 @@ body{
     width: 23px;
 }
 
+.img-shoppingcart-item{
+    width: 100px;
+}
+
 footer{
     background-color: #ea1c24;
     color: white;
