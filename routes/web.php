@@ -51,3 +51,7 @@ Route::get('/aboutus', function(){
 Route::get('/shoppingcart', function(){
     return view('shoppingCart');
 })->name('shoppingcart');
+
+Route::get('/profile', function(){
+    return view('profile');
+})->name('profile');
