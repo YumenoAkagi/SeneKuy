@@ -10,28 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body class="d-flex flex-column">
-    {{-- <div class="container"> --}}
-        {{-- <header class="d-flex flex-wrap  py-3 mb-4 border-bottom">
-            <a href="{{route('home.list')}}" class="text-decoration-none d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark">
-                <span class="fs-4">SeneKuy</span>
-            </a>
 
-            <ul class="nav col-12 col-md-auto mb-2  mb-md-0 me-auto">
-                <li>
-                    <a href="{{route('home.list')}}" class="nav-link px- link-dark">Home</a>
-                </li>
-
-                <li class="nav-item-dropdown">
-                    <a href="" class="dropdown-toggle nav-link link-dark" role="button" id="categoryDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        Category
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="categoryDropdownMenuLink">
-                        <li><a href="" class="dropdown-item">Cat 1</a></li>
-                        <li><a href="" class="dropdown-item">Cat 2</a></li>
-                        <li><a href="" class="dropdown-item">Cat 3</a></li>
-                    </ul>
-                </li>
-            </ul> --}}
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
                 <div class="container">
                   <a class="navbar-brand" href="{{route('home')}}">Snekku Logo</a>
@@ -59,6 +38,10 @@
                     </ul>
                   </div>
 
+
+                  {{-- @auth  --}}
+
+                  {{-- for role : Customer --}}
                   <div class="cart-and-wish d-flex justify-content-between pe-4">
                       <div class="wish-button">
                         <a href=""><img src="{{asset('assets/heart.png')}}" alt=""></a>
@@ -68,21 +51,53 @@
                       </div>
                   </div>
 
+
                   <div class="profile-icon ps-2">
                     <div class="btn-group">
                         <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <img src="{{asset('assets/user.png')}}" alt="">
+                          Welcome, username
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">View Profile</a></li>
                             <li><a class="dropdown-item" href="#">History Transaction</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Login or Register</a></li>
+                            <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Logout</a></li>
                         </ul>
                       </div>
 
                   </div>
-                </div>
+
+
+                {{-- for role : Admin --}}
+                {{-- <div class="profile-icon ps-2">
+                    <div class="btn-group">
+                        <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          ADMIN
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Manage Product</a></li>
+                            <li><a class="dropdown-item" href="#">Add Product</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Logout</a></li>
+                        </ul>
+                      </div>
+                </div> --}}
+
+
+
+
+
+
+                {{-- else for guest --}}
+                {{-- <a href="/login" class="text-decoration-none">
+                    <button class="btn btn-outline-dark me-2">Login</button>
+                </a>
+                <a href="/register" class="text-decoration-none">
+                    <button class="btn btn-warning">Register</button>
+                </a>
+
+                </div> --}}
+
               </nav>
 
 
