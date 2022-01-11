@@ -27,7 +27,7 @@
                           Category
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="#">cat 1</a></li>
+                          <li><a class="dropdown-item" href="{{route('category')}}">cat 1</a></li>
                           <li><a class="dropdown-item" href="#">cat 2</a></li>
                           <li><a class="dropdown-item" href="#">cat 3</a></li>
                         </ul>

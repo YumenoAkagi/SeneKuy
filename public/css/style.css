@@ -28,6 +28,10 @@ body{
     width: 100px;
 }
 
+ul li{
+    list-style-type: none;
+}
+
 footer{
     background-color: #ea1c24;
     color: white;
