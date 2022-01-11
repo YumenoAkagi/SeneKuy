@@ -13,6 +13,7 @@
                 <br>
                 Rp. {{$product->category_id}}
                 <div class="button" style="margin-top: 3em;">
+                    {{-- for Customer --}}
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
                     <span class="addToCart" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em 1em 1em 0;">
@@ -21,6 +22,12 @@
                     <span class="addToWishlist" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em;">
                         <a href="#" style="text-decoration: none; color: black;">Add to wishlist</a>
                     </span>
+
+                    {{-- for Admin --}}
+                    {{-- <span class="deleteProduct" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em;">
+                        <a href="#" style="text-decoration: none; color: black;">Delete Product</a>
+                    </span> --}}
+
                 </div>
             </div>
         </div>
