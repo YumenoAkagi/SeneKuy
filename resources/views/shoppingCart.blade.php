@@ -82,7 +82,7 @@
 
         <div class="d-flex justify-content-end mb-3" >
             <p class="fw-bold pe-3 d-flex">Total : Rp xxxx</p>
-            <button class="bg-dark ps-3 pe-3 pt-2 pb-2" style="color: white; border-radius: 5px; border: none">Check Out</button>
+            <button class="bg-dark ps-3 pe-3 pt-2 pb-2" style="color: white; border-radius: 5px; border: none"><a href="/checkout">Check Out</a></button>
         </div>
 
 

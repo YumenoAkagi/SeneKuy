@@ -59,3 +59,8 @@ Route::get('/profile', function(){
 Route::get('/category', function(){
     return view('category');
 })->name('category');
+
+
+Route::get('/checkout', function(){
+    return view('checkout');
+})->name('checkout');
