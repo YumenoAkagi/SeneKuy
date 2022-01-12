@@ -14,57 +14,57 @@
 <div class="d-flex justify-content-evenly">
     <div>
         <div>
-            FotoDikky
+            <img src="assets/photo/dikky.jpg" alt="foto_dikky" class="img-thumbnail rounded" style="width: 200px" height="200px">
         </div>
         <div>
-            2301853930
+            <p class="h4 text-center">2301853930</p>
         </div>
         <div>
-            Dikky Larson
-        </div>
-    </div>
-    <div>
-        <div>
-            FotoFanny
-        </div>
-        <div>
-            2301856081
-        </div>
-        <div>
-            Stefanny Susilo
+            <p class="h4 text-center">Dikky Larson</p>
         </div>
     </div>
     <div>
         <div>
-            FotoVijja
+            <img src="assets/photo/stefanny.jpg" alt="foto_fanny" class="img-thumbnail rounded" style="width: 200px" height="200px">
         </div>
         <div>
-
+            <p class="h4 text-center">2301856081</p>
         </div>
         <div>
-            Vijjasena
-        </div>
-    </div>
-    <div>
-        <div>
-            FotoMarcella
-        </div>
-        <div>
-
-        </div>
-        <div>
-            Marcella Marella
+            <p class="h4 text-center">Stefanny Susilo</p>
         </div>
     </div>
     <div>
         <div>
-            FotoNc
+            <img src="assets/photo/vijjasena.jpg" alt="foto_vijjasena" class="img-thumbnail rounded" style="width: 200px" height="200px">
         </div>
         <div>
-            2301855135
+            <p class="h4 text-center">2301856794</p>
         </div>
         <div>
-            Nicholas Calvin
+            <p class="h4 text-center">Vijjasena</p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img src="assets/photo/marcella.jpg" alt="foto_marcella" class="img-thumbnail rounded" style="width: 200px" height="200px">
+        </div>
+        <div>
+            <p class="h4 text-center">2301852732</p>
+        </div>
+        <div>
+            <p class="h4 text-center">Marcella Marella</p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img src="assets/photo/nicholas.jpg" alt="foto_nicholas" class="img-thumbnail rounded" style="width: 200px" height="200px">
+        </div>
+        <div>
+            <p class="h4 text-center">2301855135</p>
+        </div>
+        <div>
+            <p class="h4 text-center">Nicholas Calvin</p>
         </div>
     </div>
 </div>
