@@ -59,7 +59,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('profile')}}">View Profile</a></li>
-                            <li><a class="dropdown-item" href="#">History Transaction</a></li>
+                            <li><a class="dropdown-item" href="{{route('transaction-history')}}">History Transaction</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Logout</a></li>
                         </ul>
