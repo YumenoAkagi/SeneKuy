@@ -32,12 +32,12 @@ class HomeController extends Controller
 
     public function showCategoryWishList(){
         $showCategory = Category::all();
-        return view('shoppingCart', ['categories' => $showCategory]);
+        return view('wishlist', ['categories' => $showCategory]);
     }
 
     public function showCategoryShoppingCart(){
         $showCategory = Category::all();
-        return view('aboutus', ['categories' => $showCategory]);
+        return view('shoppingCart', ['categories' => $showCategory]);
     }
 
     public function showCategoryProfile(){
