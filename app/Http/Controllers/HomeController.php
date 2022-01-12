@@ -17,10 +17,7 @@ class HomeController extends Controller
         return view('home', ['products'=>$productList, 'categories' => $showCategory]);
     }
 
-    public function showCategoryWishList(){
-        $showCategory = Category::all();
-        return view('wishlist', ['categories' => $showCategory]);
-    }
+    
 
     public function showCategoryCheckout(){
         $showCategory = Category::all();
