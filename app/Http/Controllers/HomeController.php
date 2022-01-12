@@ -9,22 +9,65 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function showHome(){
-        $showCategory = Category::all();
-
-        return view('home', ['category' => $showCategory]);
-    }
     
     public function showProductCategory($category_id)
     {
+        $showCategory = Category::all();
         $ProductCategory = Product::join('categories', 'categories.id', '=', 'products.category_id')->where('category_id', $category_id)->get();
+        $categoryName = Category::find($category_id)->name;
 
-        return view('category', ['category' => $ProductCategory]);
+        return view('category', ['productCategories' => $ProductCategory, 'categories' => $showCategory, 'categoryName' => $categoryName]);
     }
 
-    public function showProduct(){
+    public function showHome(){
         $productList = Product::all();
-        return view('home', ['products'=>$productList]);
+        $showCategory = Category::all();
+        return view('home', ['products'=>$productList, 'categories' => $showCategory]);
+    }
+
+    public function showCategoryAboutus(){
+        $showCategory = Category::all();
+        return view('aboutus', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryWishList(){
+        $showCategory = Category::all();
+        return view('shoppingCart', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryShoppingCart(){
+        $showCategory = Category::all();
+        return view('aboutus', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryProfile(){
+        $showCategory = Category::all();
+        return view('profile', ['categories' => $showCategory]);
+    }
+
+    public function showCategorytransactionHistory(){
+        $showCategory = Category::all();
+        return view('historyTransaction', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryCheckout(){
+        $showCategory = Category::all();
+        return view('checkout', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryAdmin(){
+        $showCategory = Category::all();
+        return view('admin', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryAdd(){
+        $showCategory = Category::all();
+        return view('addProduct', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryDelete(){
+        $showCategory = Category::all();
+        return view('deleteProduct', ['categories' => $showCategory]);
     }
 
     public function showTransaction($product_id)

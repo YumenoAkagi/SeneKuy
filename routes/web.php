@@ -22,18 +22,28 @@ use App\Http\Controllers\UsersController;
 
 Route::redirect('/', '/home');
 
-// Route::get('/home', [HomeController::class , 'showHome'])->name('home.list');
-Route::get('/home', [HomeController::class, 'showProduct'])->name('home');
+Route::get('/home', [HomeController::class, 'showHome'])->name('home.list');
 
-Route::get('/category/{category_id}', [UserController::class , 'showProductCategory']);
+Route::get('/category/{categoryId}', [HomeController::class, 'showProductCategory'])->name('category');
+// Route::get('/category/{category_id}', [UserController::class , 'showProductCategory']);
 
-Route::get('/transaction/{product_id}', [UserController::class, 'showTransaction']);
+Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
+// Route::get('/transaction/{product_id}', [UserController::class, 'showTransaction']);
+Route::get('/category/{category_id}', [HomeController::class , 'showProductCategory']);
 
-Route::get('/cart', [UserController::class, 'cartList'])->name('cart.list');
-Route::post('/cart', [UserController::class, 'addToCart'])->name('cart.store');
-Route::post('/update-cart', [UserController::class, 'updateCart'])->name('cart.update');
-Route::post('/remove', [UserController::class, 'removeCart'])->name('cart.remove');
-Route::post('/clear', [UserController::class, 'clearAllCart'])->name('cart.clear');
+Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
+
+Route::get('/cart', [HomeController::class, 'cartList'])->name('cart.list');
+Route::post('/cart', [HomeController::class, 'addToCart'])->name('cart.store');
+Route::post('/update-cart', [HomeController::class, 'updateCart'])->name('cart.update');
+Route::post('/remove', [HomeController::class, 'removeCart'])->name('cart.remove');
+Route::post('/clear', [HomeController::class, 'clearAllCart'])->name('cart.clear');
+
+// Route::get('/cart', [UserController::class, 'cartList'])->name('cart.list');
+// Route::post('/cart', [UserController::class, 'addToCart'])->name('cart.store');
+// Route::post('/update-cart', [UserController::class, 'updateCart'])->name('cart.update');
+// Route::post('/remove', [UserController::class, 'removeCart'])->name('cart.remove');
+// Route::post('/clear', [UserController::class, 'clearAllCart'])->name('cart.clear');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -44,42 +54,20 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/product/details/{productId}', [ProductDetailController::class, 'getProductDetails'])->name('productDetail');
 
-Route::get('/aboutus', function(){
-    return view('aboutUs');
-})->name('aboutus');
+Route::get('/aboutus', [HomeController::class, 'showCategoryAboutus'])->name('aboutus');
 
-Route::get('/shoppingcart', function(){
-    return view('shoppingCart');
-})->name('shoppingcart');
+Route::get('/shoppingcart', [HomeController::class, 'showCategoryShoppingCart'])->name('shoppingcart');
 
-Route::get('/profile', function(){
-    return view('profile');
-})->name('profile');
+Route::get('/profile', [HomeController::class, 'showCategoryProfile'])->name('profile');
 
-Route::get('/category', function(){
-    return view('category');
-})->name('category');
+Route::get('/wishlist', [HomeController::class, 'showCategoryWishlist'])->name('wishlist');
 
-Route::get('/transaction-history', function(){
-    return view('historyTransaction');
-})->name('transaction-history');
+Route::get('/transaction-history', [HomeController::class, 'showCategorytransactionHistory'])->name('transaction-history');
 
-Route::get('/checkout', function(){
-    return view('checkout');
-})->name('checkout');
+Route::get('/checkout', [HomeController::class, 'showCategoryCheckout'])->name('checkout');
 
-Route::get('/wishlist', function(){
-    return view('wishlist');
-})->name('wishlist');
+Route::get('/admin', [HomeController::class, 'showCategoryAdmin'])->name('admin');
 
-Route::get('/admin', function(){
-    return view('admin');
-})->name('admin');
+Route::get('/add-product', [HomeController::class, 'showCategoryAdd'])->name('addProduct');
 
-Route::get('/add-product', function(){
-    return view('addProduct');
-})->name('addProduct');
-
-Route::get('/delete-product', function(){
-    return view('deleteProduct');
-})->name('deleteProduct');
+Route::get('/delete-product', [HomeController::class, 'showCategoryDelete'])->name('deleteProduct');
