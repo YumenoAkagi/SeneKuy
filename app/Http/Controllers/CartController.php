@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\TransactionDetail;
+use App\Models\TransactionHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -102,10 +104,21 @@ class CartController extends Controller
         
         $carts = Cart::where('user_id', '=', Auth()->id())->get();
 
+        if(count($carts) <= 0)
+            return back();
+
         // add new transaction header
+        $th = new TransactionHeader;
+        $th->user_id = Auth()->id();
+        $th->save();
 
         foreach($carts as $cart) {
             // add to new transaction detail
+            $td = new TransactionDetail;
+            $td->transaction_id = $th->id;
+            $td->product_id = $cart->product_id;
+            $td->quantity = $cart->quantity;
+            $td->save();
 
             // delete cart
             $cart->delete();
