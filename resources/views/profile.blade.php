@@ -21,11 +21,6 @@
             <span class="fw-bold">Email : </span>
             <p>{{$user->email}}</p>
         </div>
-        <hr>
-        <div class="password-text">
-            <span class="fw-bold">Password : </span>
-            <p>xxxxx</p>
-        </div>
 
         @endforeach
         <div class="text-center">
