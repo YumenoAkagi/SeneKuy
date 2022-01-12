@@ -29,6 +29,9 @@ Route::get('/category/{categoryId}', [HomeController::class, 'showProductCategor
 
 Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
 // Route::get('/transaction/{product_id}', [UserController::class, 'showTransaction']);
+Route::get('/category/{category_id}', [HomeController::class , 'showProductCategory']);
+
+Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
 
 Route::get('/cart', [HomeController::class, 'cartList'])->name('cart.list');
 Route::post('/cart', [HomeController::class, 'addToCart'])->name('cart.store');
