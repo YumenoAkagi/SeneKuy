@@ -61,11 +61,11 @@ class CartController extends Controller
         if($selected == null)
             return back(404);
 
-        $selected->remove();
+        $selected->delete();
 
         session()->flash('success', 'Cart is Removed');
 
-        return redirect()->route('cart.list');
+        return back();
     }
 
     public function clearAllCart()
@@ -74,7 +74,7 @@ class CartController extends Controller
 
         session()->flash('success', 'All cart is clear');
 
-        return redirect()->route('cart.list');
+        return back();
     }
 
     public function showShoppingCart(){
