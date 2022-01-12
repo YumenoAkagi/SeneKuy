@@ -15,10 +15,10 @@
                 
                 <div class="button" style="margin-top: 3em;">
                     {{-- for Customer --}}
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
                     <form action="/cart/add/{{$product->id}}" method="post">
                         @csrf
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
                         <button type="submit" class="btn btn-danger">Add to cart</button>
                     </form>
                     <form action="/wishlist/add/{{$product->id}}" method="post">
