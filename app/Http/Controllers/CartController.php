@@ -21,12 +21,18 @@ class CartController extends Controller
             return back()->withErrors($validator);
         }
 
-        $cart = new Cart;
-        $cart->user_id = Auth()->id();
-        $cart->product_id = $request->id;
-        $cart->quantity = $request->quantity;
+        $exists = Cart::firstWhere('product_id', '=', $request->id);
 
-        $cart->save();
+        if($exists == null) {
+            $cart = new Cart;
+            $cart->user_id = Auth()->id();
+            $cart->product_id = $request->id;
+            $cart->quantity = $request->quantity;
+            $cart->save();
+        } else {
+            $exists->quantity += $request->quantity;
+            $exists->save();
+        }
 
         session()->flash('success', 'Product is Added');
 
