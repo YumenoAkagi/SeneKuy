@@ -40,7 +40,7 @@
         
         @if (Auth()->user())
 
-          @if (Auth()->user()->role_id == Helper::getAdminRoleId) {{--Untuk admin--}}
+          @if (Auth()->user()->role_id === Helper::getAdminRoleId()) {{--Untuk admin--}}
           <div class="profile-icon ps-2">
             <div class="btn-group">
               <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,7 +55,7 @@
           </div>
           @endif
 
-          @if (Auth()->user()->role_id == Helper::getCustomerRoleId) {{--Untuk customer--}}
+          @if (Auth()->user()->role_id === Helper::getCustomerRoleId()) {{--Untuk customer--}}
           <div class="cart-and-wish d-flex justify-content-between pe-4">
             <div class="wish-button">
               <a href="{{route('wishlist')}}"><img src="{{asset('assets/heart.png')}}" alt=""></a>
