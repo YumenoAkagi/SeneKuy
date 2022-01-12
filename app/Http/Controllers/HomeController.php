@@ -17,7 +17,6 @@ class HomeController extends Controller
         $productCategory = DB::table('categories')
                             ->join('products', 'categories.id', '=', 'products.category_id')
                             ->where('categories.id', 'LIKE', $category_id)->get();
-        // $ProductCategory = Product::join('categories', 'categories.id', '=', 'products.category_id')->where('category_id', 'LIKE', $category_id)->get();
         $categoryName = Category::find($category_id)->name;
 
         return view('category', ['productCategories' => $productCategory, 'categories' => $showCategory, 'categoryName' => $categoryName]);
