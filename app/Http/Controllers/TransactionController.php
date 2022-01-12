@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\TransactionDetail;
+use App\Models\TransactionHeader;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -21,7 +23,26 @@ class TransactionController extends Controller
     }
 
     public function showCategorytransactionHistory(){
+        // $showCategory = Category::all();
+        // return view('historyTransaction', ['categories' => $showCategory]);
+        $total = 0;
+
+        $histories = TransactionHeader::where('user_id', '=', Auth()->id())->get();
+        $transactiondetails = collect();
+        $products = Product::all();
         $showCategory = Category::all();
-        return view('historyTransaction', ['categories' => $showCategory]);
+    
+        foreach($histories as $hs) {
+            $tr = TransactionDetail::find($hs->transaction_id);
+            $transactiondetails->push($tr);
+        }
+    
+        $params['histories'] = $histories;
+        $params['products'] = $products;
+        $params['transactiondetails'] = $transactiondetails;
+        $params['categories'] = $showCategory;
+        $params['totalPrice'] = $total;
+
+        return view('historyTransaction', $params);
     }
 }
