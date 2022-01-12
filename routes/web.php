@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductDetailController;
@@ -29,9 +30,9 @@ Route::get('/aboutus', [HomeController::class, 'showCategoryAboutus'])->name('ab
 
 // GUEST ONLY
 Route::middleware('guest')->group(function() {
-    Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+    Route::get('/register', [RegisterController::class, 'create']);
     Route::post('/register', [RegisterController::class, 'store']);
-    Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate']);
 });
 
@@ -47,10 +48,10 @@ Route::middleware('auth')->group(function () {
     // CUSTOMER SECTION HERE
     Route::middleware('customer')->group(function () {
         Route::get('/cart', [HomeController::class, 'cartList'])->name('cart.list');
-        Route::post('/cart', [HomeController::class, 'addToCart'])->name('cart.store');
-        Route::post('/update-cart', [HomeController::class, 'updateCart'])->name('cart.update');
-        Route::post('/remove', [HomeController::class, 'removeCart'])->name('cart.remove');
-        Route::post('/clear', [HomeController::class, 'clearAllCart'])->name('cart.clear');
+        Route::post('/cart/add/{id}', [CartController::class]);
+        Route::put('cart/update/{id}', [CartController::class, 'updateCart']);
+        Route::delete('/cart/delete', [CartController::class, 'removeCart']);
+        Route::delete('/cart/deleteall', [CartController::class, 'clearAllCart']);
 
         Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
         Route::get('/transaction-history', [HomeController::class, 'showCategorytransactionHistory'])->name('transaction-history');

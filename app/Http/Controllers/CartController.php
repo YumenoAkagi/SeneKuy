@@ -34,7 +34,7 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
-        $selected = Cart::firstWhere()
+        $selected = Cart::firstWhere('id', '')
 
         session()->flash('success', 'Cart is Updated');
 
