@@ -18,4 +18,9 @@ class TransactionController extends Controller
         $params['transactiondetail'] = $transaction;
         return view('transactiondetail', $params);
     }
+
+    public function showCategorytransactionHistory(){
+        $showCategory = Category::all();
+        return view('historyTransaction', ['categories' => $showCategory]);
+    }
 }

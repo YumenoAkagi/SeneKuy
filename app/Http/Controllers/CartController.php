@@ -58,4 +58,9 @@ class CartController extends Controller
 
         return redirect()->route('cart.list');
     }
+
+    public function showCategoryShoppingCart(){
+        $showCategory = Category::all();
+        return view('shoppingCart', ['categories' => $showCategory]);
+    }
 }
