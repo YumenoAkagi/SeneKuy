@@ -56,34 +56,18 @@ Route::get('/product/details/{productId}', [ProductDetailController::class, 'get
 
 Route::get('/aboutus', [HomeController::class, 'showCategoryAboutus'])->name('aboutus');
 
-Route::get('/shoppingcart', function(){
-    return view('shoppingCart');
-})->name('shoppingcart');
+Route::get('/shoppingcart', [HomeController::class, 'showCategoryShoppingCart'])->name('shoppingcart');
 
-Route::get('/profile', function(){
-    return view('profile');
-})->name('profile');
+Route::get('/profile', [HomeController::class, 'showCategoryProfile'])->name('profile');
 
-Route::get('/transaction-history', function(){
-    return view('historyTransaction');
-})->name('transaction-history');
+Route::get('/wishlist', [HomeController::class, 'showCategoryWishlist'])->name('wishlist');
 
-Route::get('/checkout', function(){
-    return view('checkout');
-})->name('checkout');
+Route::get('/transaction-history', [HomeController::class, 'showCategorytransactionHistory'])->name('transaction-history');
 
-Route::get('/wishlist', function(){
-    return view('wishlist');
-})->name('wishlist');
+Route::get('/checkout', [HomeController::class, 'showCategoryCheckout'])->name('checkout');
 
-Route::get('/admin', function(){
-    return view('admin');
-})->name('admin');
+Route::get('/admin', [HomeController::class, 'showCategoryAdmin'])->name('admin');
 
-Route::get('/add-product', function(){
-    return view('addProduct');
-})->name('addProduct');
+Route::get('/add-product', [HomeController::class, 'showCategoryAdd'])->name('addProduct');
 
-Route::get('/delete-product', function(){
-    return view('deleteProduct');
-})->name('deleteProduct');
+Route::get('/delete-product', [HomeController::class, 'showCategoryDelete'])->name('deleteProduct');

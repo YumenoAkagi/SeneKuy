@@ -30,6 +30,46 @@ class HomeController extends Controller
         return view('aboutus', ['categories' => $showCategory]);
     }
 
+    public function showCategoryWishList(){
+        $showCategory = Category::all();
+        return view('shoppingCart', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryShoppingCart(){
+        $showCategory = Category::all();
+        return view('aboutus', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryProfile(){
+        $showCategory = Category::all();
+        return view('profile', ['categories' => $showCategory]);
+    }
+
+    public function showCategorytransactionHistory(){
+        $showCategory = Category::all();
+        return view('historyTransaction', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryCheckout(){
+        $showCategory = Category::all();
+        return view('checkout', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryAdmin(){
+        $showCategory = Category::all();
+        return view('admin', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryAdd(){
+        $showCategory = Category::all();
+        return view('addProduct', ['categories' => $showCategory]);
+    }
+
+    public function showCategoryDelete(){
+        $showCategory = Category::all();
+        return view('deleteProduct', ['categories' => $showCategory]);
+    }
+
     public function showTransaction($product_id)
     {
         $transaction = Product::join('categories', 'categories.id', '=', 'products.category_id')
