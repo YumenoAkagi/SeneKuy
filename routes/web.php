@@ -68,3 +68,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete-product', [HomeController::class, 'showCategoryDelete'])->name('deleteProduct');
     });
 });
+
+Route::get('update-product', function(){
+    return view('updateProduct');
+})->name('updateProduct');
