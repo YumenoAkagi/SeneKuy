@@ -47,7 +47,7 @@
                     <h4 class="m-0">Rp 999.999</h4>
                 </div>
 
-                <button class="bg-dark ps-3 pe-3 pt-2 pb-2" style="color: white; border-radius: 5px; border: none">Pay</button>
+                <a href="#"><div class="btn btn-dark">Pay</div></a>
             </div>
         </div>
     </div>

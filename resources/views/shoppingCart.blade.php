@@ -33,9 +33,9 @@
         @endif
         
 
-        <div class="d-flex justify-content-end mb-3" >
-            <p class="fw-bold pe-3 d-flex">Total : Rp {{ $totalPrice }}</p>
-            <button class="bg-dark ps-3 pe-3 pt-2 pb-2" style="color: white; border-radius: 5px; border: none"><a href="/checkout">Check Out</a></button>
+        <div class="d-flex justify-content-end align-items-center mb-3" >
+            <p class="fw-bold pe-4 m-0">Total : Rp {{ $totalPrice }}</p>
+            <a href="/checkout" class="btn btn-dark">Checkout</a>
         </div>
 
 
