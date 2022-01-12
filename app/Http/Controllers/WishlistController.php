@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class WishlistController extends Controller
 {
+
+    public function addToWishlist(){
+        return redirect()->route('wishlist');
+    }
+
     public function showWishList(){
         $wishlists = Wishlist::where('user_id', '=', Auth()->id())->get();
         $products = collect();
