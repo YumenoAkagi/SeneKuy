@@ -5,7 +5,7 @@
 <div class="container">
     <h3>{{$categoryName}}</h3>
     <div class="content d-flex mt-4">
-        <div class="category-list me-4" style="width: 200px; border-right: black 1px solid;">
+        <div class="category-list me-4" style="width: 200px; border-right: black 1px solid; padding-right: 2em;">
             <ul class="list-category">
                 @foreach($categories as $category)
                 <li><a class="text-decoration-none"  style="color: black" href="{{route('category',['categoryId'=>$category->id])}}">{{$category->name}}</li>
@@ -16,7 +16,7 @@
             <div class="row">
                 @foreach($productCategories as $products)
                 <div class="col-md-3">
-                    <div class="card w-75" style="margin-bottom: 2em;">
+                    <div class="card w-75" style="margin-bottom: 2em; margin-left: 1em;">
                         <a href="" style="text-decoration: none; color: black;">
                             <div class="card-body">
                                 <div class="product-image-card d-flex justify-content-center">
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="product-detail-card">
                                     <strong>{{$products->name}}</strong>
-                                    <p>Rp. xxxx</p>
+                                    <p>Rp. {{$products->price}}</p>
                                 </div>
                             </div>
                         </a>
