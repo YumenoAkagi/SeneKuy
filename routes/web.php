@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
     // CUSTOMER SECTION HERE
     Route::middleware('customer')->group(function () {
         Route::get('/cart', [CartController::class, 'showShoppingCart'])->name('shoppingcart');
-        Route::post('/cart/add/{id}', [CartController::class]);
+        Route::post('/cart/add/{id}', [CartController::class, 'addToCart']);
         Route::put('cart/update/{id}', [CartController::class, 'updateCart']);
         Route::delete('/cart/delete/{id}', [CartController::class, 'removeCart']);
         Route::delete('/cart/clear', [CartController::class, 'clearAllCart']);

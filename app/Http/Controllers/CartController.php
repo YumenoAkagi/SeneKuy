@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
@@ -13,8 +14,6 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'user_id' => 'required',
-            'product_id' => 'required',
             'quantity' => 'required'
         ]);
 
@@ -23,15 +22,15 @@ class CartController extends Controller
         }
 
         $cart = new Cart;
-        $cart->user_id = $request->user_id;
-        $cart->product_id = $request->product_id;
+        $cart->user_id = Auth()->id();
+        $cart->product_id = $request->id;
         $cart->quantity = $request->quantity;
 
         $cart->save();
 
         session()->flash('success', 'Product is Added');
 
-        return redirect()->route('cart.list');
+        return redirect('/cart');
     }
 
     public function updateCart(Request $request)

@@ -12,15 +12,15 @@
                 <strong style="font-size: 3em;">{{$product->name}}</strong>
                 <br>
                 Rp. {{$product->category_id}}
-                <form action="{{route('/cart/add/{{$product->id}}')}}" method="post">
+                <form action="/cart/add/{{$product->id}}" method="post">
                     @csrf
                     <div class="button" style="margin-top: 3em;">
                         {{-- for Customer --}}
                         <label for="quantity">Quantity:</label>
                         <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
                         <button type="submit" class="btn btn-danger">Add to cart</button>
-                        <button type="submit" class="btn btn-danger">Add to wishlist</button>
                 </form>
+                <button type="submit" class="btn btn-danger">Add to wishlist</button>
 
                     {{-- for Admin --}}
                     {{-- <span class="deleteProduct" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em;">
