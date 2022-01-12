@@ -43,7 +43,7 @@
 
             <div class="d-flex justify-content-between">
                 <div>
-                    <h6 class="mb-1">Total bayar</h6>
+                    <h6 class="mb-1">Total harga</h6>
                     <h4 class="m-0">Rp 999.999</h4>
                 </div>
 
