@@ -50,8 +50,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/cart', [HomeController::class, 'cartList'])->name('cart.list');
         Route::post('/cart/add/{id}', [CartController::class]);
         Route::put('cart/update/{id}', [CartController::class, 'updateCart']);
-        Route::delete('/cart/delete', [CartController::class, 'removeCart']);
-        Route::delete('/cart/deleteall', [CartController::class, 'clearAllCart']);
+        Route::delete('/cart/delete/{id}', [CartController::class, 'removeCart']);
+        Route::delete('/cart/clear', [CartController::class, 'clearAllCart']);
 
         Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
         Route::get('/transaction-history', [HomeController::class, 'showCategorytransactionHistory'])->name('transaction-history');

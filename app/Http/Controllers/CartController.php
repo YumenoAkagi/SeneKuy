@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -34,7 +35,13 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
-        $selected = Cart::firstWhere('id', '')
+        $selected = Cart::firstWhere('id', '=', $request->id);
+
+        if($selected == null)
+            return back(404);
+
+        $selected->quantity = $request->quantity;
+        $selected->save();
 
         session()->flash('success', 'Cart is Updated');
 
@@ -43,7 +50,12 @@ class CartController extends Controller
 
     public function removeCart(Request $request)
     {
-        Cart::remove($request->id);
+        $selected = Cart::firstWhere('id', '=', $request->id);
+
+        if($selected == null)
+            return back(404);
+
+        $selected->remove();
 
         session()->flash('success', 'Cart is Removed');
 
@@ -59,8 +71,13 @@ class CartController extends Controller
         return redirect()->route('cart.list');
     }
 
-    public function showCategoryShoppingCart(){
+    public function showShoppingCart(){
         $showCategory = Category::all();
-        return view('shoppingCart', ['categories' => $showCategory]);
+
+        $shoppingCart = Cart::where('user_id', '=', Auth()->id())->get();
+
+        $params['carts'] = $shoppingCart;
+        $params['categories'] = $showCategory;
+        return view('shoppingCart', $params);
     }
 }
