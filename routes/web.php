@@ -64,7 +64,6 @@ Route::get('/transaction-history', function(){
     return view('historyTransaction');
 })->name('transaction-history');
 
-
 Route::get('/checkout', function(){
     return view('checkout');
 })->name('checkout');
