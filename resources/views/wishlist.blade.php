@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="container">
-    <h3>Wishlist</h3>
+<div class="container mb-5">
+    <h3 class="mb-4">Wishlist</h3>
 
     {{-- href ke detail produk --}}
     @if (count($wishlists) > 0)

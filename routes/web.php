@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 // ALL USER ACCESS
 Route::redirect('/', '/home');
 Route::get('/home', [HomeController::class, 'showHome'])->name('home.list');
-Route::get('/category/{categoryId}', [HomeController::class, 'showProductCategory'])->name('category');
+Route::get('/category/{categoryId}', [ProductController::class, 'showProductCategory'])->name('category');
 Route::get('/aboutus', [AboutusController::class, 'showCategoryAboutus'])->name('aboutus');
 
 // GUEST ONLY
@@ -43,7 +43,7 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->group(function () {
     // LOGGED IN ONLY
     Route::post('/logout', [LoginController::class, 'logout']);
-    Route::get('/profile', [ProfileController::class, 'showCategoryProfile'])->name('profile');
+    Route::get('/profile', [ProfileController::class, 'showUserData'])->name('profile');
 
     Route::get('/category/{category_id}', [ProductController::class , 'showProductCategory']);
     Route::get('/product/details/{productId}', [ProductDetailController::class, 'getProductDetails'])->name('productDetail');
