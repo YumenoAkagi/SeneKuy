@@ -67,7 +67,7 @@
           <div class="profile-icon ps-2">
             <div class="btn-group">
               <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Welcome, username
+                Welcome, {{ Auth()->user()->firstName }}
               </button>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{{route('profile')}}">View Profile</a></li>

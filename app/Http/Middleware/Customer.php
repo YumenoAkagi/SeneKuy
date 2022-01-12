@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
+use App\Models\Role;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class Customer
      */
     public function handle(Request $request, Closure $next)
     {
-        $customer_role_id = User::firstWhere('name', '=', 'Customer')->id;
+        $customer_role_id = Role::firstWhere('name', '=', 'Customer')->id;
         if(Auth()->user() && Auth()->user()->role_id != $customer_role_id)
             return back();
             
