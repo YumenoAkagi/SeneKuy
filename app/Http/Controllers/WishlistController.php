@@ -50,4 +50,15 @@ class WishlistController extends Controller
 
         return back()->with('success', 'Successfully delete data');
     }
+
+    public function deleteWishlistByProductId(Request $request) {
+        $selected = Wishlist::firstWhere('product_id', '=', $request->id);
+
+        if($selected == null)
+            return back(404);
+
+        $selected->delete();
+
+        return back()->with('success', 'Successfully delete data');
+    }
 }

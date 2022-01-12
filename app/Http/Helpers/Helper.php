@@ -2,6 +2,7 @@
 namespace App\Http\Helpers;
 
 use App\Models\Role;
+use App\Models\Wishlist;
 
 class Helper {
     public static function getAdminRoleId() {
@@ -12,5 +13,13 @@ class Helper {
     public static function getCustomerRoleId() {
         $cust_id = Role::firstWhere('name', '=', 'Customer')->id;
         return $cust_id;
+    }
+
+    public static function isAddedToWishlist($id) {
+        $wl = Wishlist::firstWhere('product_id', '=', $id);
+        if($wl == null) {
+            return false;
+        } 
+        return true;
     }
 }
