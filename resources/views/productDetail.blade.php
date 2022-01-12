@@ -12,16 +12,21 @@
                 <strong style="font-size: 3em;">{{$product->name}}</strong>
                 <br>
                 Rp. {{$product->category_id}}
-                <div class="button" style="margin-top: 3em;">
-                    {{-- for Customer --}}
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
-                    <span class="addToCart" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em 1em 1em 0;">
-                        <a href="#" style="text-decoration: none; color: black;">Add to cart</a>
-                    </span>
-                    <span class="addToWishlist" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em;">
-                        <a href="#" style="text-decoration: none; color: black;">Add to wishlist</a>
-                    </span>
+                <form action="{{route('cart.store')}}" method="post">
+                    @csrf
+                    <div class="button" style="margin-top: 3em;">
+                        {{-- for Customer --}}
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
+                        <button type="submit" class="btn btn-danger">Add to cart</button>
+                        <button type="submit" class="btn btn-danger">Add to wishlist</button>
+                        <!-- <span class="addToCart" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em 1em 1em 0;">
+                            <a style="text-decoration: none; color: black;" type="submit">Add to cart</a>
+                        </span> -->
+                        <!-- <span class="addToWishlist" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em;">
+                            <a href="#" style="text-decoration: none; color: black;">Add to wishlist</a>
+                        </span> -->
+                </form>
 
                     {{-- for Admin --}}
                     {{-- <span class="deleteProduct" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em;">
