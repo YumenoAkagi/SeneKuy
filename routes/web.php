@@ -41,7 +41,7 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->group(function () {
     // LOGGED IN ONLY
     Route::post('/logout', [LoginController::class, 'logout']);
-    Route::get('/profile', [ProfileController::class, 'showCategoryProfile'])->name('profile');
+    Route::get('/profile', [ProfileController::class, 'showUserData'])->name('profile');
 
     Route::get('/category/{category_id}', [ProductController::class , 'showProductCategory']);
     Route::get('/product/details/{productId}', [ProductDetailController::class, 'getProductDetails'])->name('productDetail');
