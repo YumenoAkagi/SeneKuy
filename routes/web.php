@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 // ALL USER ACCESS
 Route::redirect('/', '/home');
 Route::get('/home', [HomeController::class, 'showHome'])->name('home.list');
-Route::get('/category/{categoryId}', [HomeController::class, 'showProductCategory'])->name('category');
+Route::get('/category/{categoryId}', [ProductController::class, 'showProductCategory'])->name('category');
 Route::get('/aboutus', [AboutusController::class, 'showCategoryAboutus'])->name('aboutus');
 
 // GUEST ONLY

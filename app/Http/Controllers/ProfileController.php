@@ -15,7 +15,7 @@ class ProfileController extends Controller
         return view('admin', ['categories' => $showCategory]);
     }
 
-    public function showUserData($user){
+    public function showUserData(){
         $userData = DB::table('users')
                         ->select('users.firstName', 'users.lastName', 'users.phoneNumber');
         $showCategory = Category::all();
