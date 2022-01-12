@@ -10,17 +10,6 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    
-    public function showProductCategory($category_id)
-    {
-        $showCategory = Category::all();
-        $productCategory = DB::table('categories')
-                            ->join('products', 'categories.id', '=', 'products.category_id')
-                            ->where('categories.id', 'LIKE', $category_id)->get();
-        $categoryName = Category::find($category_id)->name;
-
-        return view('category', ['productCategories' => $productCategory, 'categories' => $showCategory, 'categoryName' => $categoryName]);
-    }
 
     public function showHome(){
         $productList = Product::all();
@@ -36,16 +25,6 @@ class HomeController extends Controller
     public function showCategoryCheckout(){
         $showCategory = Category::all();
         return view('checkout', ['categories' => $showCategory]);
-    }
-
-    public function showCategoryAdd(){
-        $showCategory = Category::all();
-        return view('addProduct', ['categories' => $showCategory]);
-    }
-
-    public function showCategoryDelete(){
-        $showCategory = Category::all();
-        return view('deleteProduct', ['categories' => $showCategory]);
     }
 
     public function showTransaction($product_id)
