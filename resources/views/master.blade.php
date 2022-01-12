@@ -46,7 +46,7 @@
                   {{-- for role : Customer --}}
                   <div class="cart-and-wish d-flex justify-content-between pe-4">
                       <div class="wish-button">
-                        <a href=""><img src="{{asset('assets/heart.png')}}" alt=""></a>
+                        <a href="{{route('wishlist')}}"><img src="{{asset('assets/heart.png')}}" alt=""></a>
                       </div>
                       <div class="cart-button">
                         <a href="{{route('shoppingcart')}}"><img src="{{asset('assets/cart.png')}}" alt=""></a>
@@ -61,7 +61,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('profile')}}">View Profile</a></li>
-                            <li><a class="dropdown-item" href="#">History Transaction</a></li>
+                            <li><a class="dropdown-item" href="{{route('transaction-history')}}">History Transaction</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Logout</a></li>
                         </ul>
@@ -77,7 +77,6 @@
                           ADMIN
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Manage Product</a></li>
                             <li><a class="dropdown-item" href="#">Add Product</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Logout</a></li>

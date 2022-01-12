@@ -61,3 +61,26 @@ Route::get('/profile', function(){
     return view('profile');
 })->name('profile');
 
+Route::get('/transaction-history', function(){
+    return view('historyTransaction');
+})->name('transaction-history');
+
+Route::get('/checkout', function(){
+    return view('checkout');
+})->name('checkout');
+
+Route::get('/wishlist', function(){
+    return view('wishlist');
+})->name('wishlist');
+
+Route::get('/admin', function(){
+    return view('admin');
+})->name('admin');
+
+Route::get('/add-product', function(){
+    return view('addProduct');
+})->name('addProduct');
+
+Route::get('/delete-product', function(){
+    return view('deleteProduct');
+})->name('deleteProduct');
