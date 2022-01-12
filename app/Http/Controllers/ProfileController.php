@@ -16,8 +16,7 @@ class ProfileController extends Controller
     }
 
     public function showUserData(){
-        $userData = DB::table('users')
-                        ->select('users.firstName', 'users.lastName', 'users.phoneNumber');
+        $userData = User::all();
         $showCategory = Category::all();
         return view('profile', ['categories' => $showCategory, 'users' =>$userData]);
     }
