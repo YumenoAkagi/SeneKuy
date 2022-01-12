@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
+use App\Models\Role;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        $admin_role_id = User::firstWhere('name', '=', 'Admin')->id;
+        $admin_role_id = Role::firstWhere('name', '=', 'Admin')->id;
         if(Auth()->user() && Auth()->user()->role_id != $admin_role_id)
             return back();
 

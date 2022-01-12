@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
 
     // CUSTOMER SECTION HERE
     Route::middleware('customer')->group(function () {
-        Route::get('/cart', [HomeController::class, 'cartList'])->name('cart.list');
+        Route::get('/cart', [CartController::class, 'showShoppingCart'])->name('shoppingcart');
         Route::post('/cart/add/{id}', [CartController::class]);
         Route::put('cart/update/{id}', [CartController::class, 'updateCart']);
         Route::delete('/cart/delete/{id}', [CartController::class, 'removeCart']);
@@ -58,7 +58,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
         Route::get('/transaction-history', [TransactionController::class, 'showCategorytransactionHistory'])->name('transaction-history');
 
-        Route::get('/shoppingcart', [CartController::class, 'showCategoryShoppingCart'])->name('shoppingcart');
         Route::get('/wishlist', [HomeController::class, 'showCategoryWishlist'])->name('wishlist');
         Route::get('/checkout', [HomeController::class, 'showCategoryCheckout'])->name('checkout');
     });
