@@ -7,7 +7,7 @@
 
     {{-- href ke detail produk --}}
     @if (count($wishlists) > 0)
-        @for ($i=0; $i<wishlists->count(); $i++)
+        @for ($i=0; $i<$wishlists->count(); $i++)
             <a href="/product/details/{{$products[$i]->id}}" class="text-decoration-none" style="color: black">
                 <div class="card mb-3">
                     <div class="card-body d-flex">
