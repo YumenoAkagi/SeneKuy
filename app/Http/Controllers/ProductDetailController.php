@@ -12,6 +12,7 @@ class ProductDetailController extends Controller
         $details = DB::table('products')
                         ->where('products.id', 'LIKE', $productId)
                         ->get();
-        return view('productDetail', ['productDetail'=>$details]);
+        $showCategory = Category::all();
+        return view('productDetail', ['productDetail'=>$details, 'categories' => $showCategory]);
     }
 }

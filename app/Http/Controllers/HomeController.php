@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -13,10 +14,12 @@ class HomeController extends Controller
     public function showProductCategory($category_id)
     {
         $showCategory = Category::all();
-        $ProductCategory = Product::join('categories', 'categories.id', '=', 'products.category_id')->where('category_id', $category_id)->get();
+        $productCategory = DB::table('categories')
+                            ->join('products', 'categories.id', '=', 'products.category_id')
+                            ->where('categories.id', 'LIKE', $category_id)->get();
         $categoryName = Category::find($category_id)->name;
 
-        return view('category', ['productCategories' => $ProductCategory, 'categories' => $showCategory, 'categoryName' => $categoryName]);
+        return view('category', ['productCategories' => $productCategory, 'categories' => $showCategory, 'categoryName' => $categoryName]);
     }
 
     public function showHome(){
@@ -32,12 +35,12 @@ class HomeController extends Controller
 
     public function showCategoryWishList(){
         $showCategory = Category::all();
-        return view('shoppingCart', ['categories' => $showCategory]);
+        return view('wishlist', ['categories' => $showCategory]);
     }
 
     public function showCategoryShoppingCart(){
         $showCategory = Category::all();
-        return view('aboutus', ['categories' => $showCategory]);
+        return view('shoppingCart', ['categories' => $showCategory]);
     }
 
     public function showCategoryProfile(){
