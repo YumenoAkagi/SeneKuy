@@ -9,6 +9,8 @@ use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\WishlistController;
+use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -58,7 +60,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
         Route::get('/transaction-history', [TransactionController::class, 'showCategorytransactionHistory'])->name('transaction-history');
 
-        Route::get('/wishlist', [HomeController::class, 'showCategoryWishlist'])->name('wishlist');
+        Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('wishlist');
+        Route::delete('/wishlist/delete/{id}', [WishlistController::class, 'deleteWishlist']);
         Route::get('/checkout', [HomeController::class, 'showCategoryCheckout'])->name('checkout');
     });
 
