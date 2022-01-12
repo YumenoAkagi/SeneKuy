@@ -79,3 +79,7 @@ Route::get('/admin', function(){
 Route::get('/add-product', function(){
     return view('addProduct');
 })->name('addProduct');
+
+Route::get('/delete-product', function(){
+    return view('deleteProduct');
+})->name('deleteProduct');
