@@ -23,7 +23,6 @@
                         @csrf
                         <button type="submit" class="btn btn-danger">Add to wishlist</button>
                     </form>
-                    @endif
                     
 
                         {{-- for Admin --}}
