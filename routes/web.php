@@ -75,3 +75,7 @@ Route::get('/wishlist', function(){
 Route::get('/admin', function(){
     return view('admin');
 })->name('admin');
+
+Route::get('/add-product', function(){
+    return view('addProduct');
+})->name('addProduct');
