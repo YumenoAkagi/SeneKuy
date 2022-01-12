@@ -12,7 +12,7 @@
                 <strong style="font-size: 3em;">{{$product->name}}</strong>
                 <br>
                 Rp. {{$product->category_id}}
-                <form action="{{route('/cart/add/{{$product->id}}')}}" method="post">
+                <form action="/cart/add/{{$product->id}}" method="post">
                     @csrf
                     <div class="button" style="margin-top: 3em;">
                         {{-- for Customer --}}
