@@ -73,7 +73,9 @@
                   <li><a class="dropdown-item" href="{{route('profile')}}">View Profile</a></li>
                   <li><a class="dropdown-item" href="{{route('transaction-history')}}">History Transaction</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item fw-bold" href="/logout">Logout</a></li>
+                  <form action="/logout" method="post">
+                    <li><a class="dropdown-item fw-bold" href="">Logout</a></li>
+                  </form>
               </ul>
             </div>
           </div>
