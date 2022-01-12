@@ -11,7 +11,7 @@
 </head>
 <body class="d-flex flex-column p-5">
     <h1 class="mb-4 text-center">Welcome, admin</h1>
-    <a href="#" class="btn btn-outline-secondary mb-3">Add product</a>
+    <a href="/add-product" class="btn btn-outline-secondary mb-3">Add product</a>
     <a href="#" class="btn btn-outline-secondary mb-3">Update product</a>
     <a href="#" class="btn btn-outline-secondary mb-3">Delete product</a>
 </body>
