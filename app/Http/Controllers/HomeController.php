@@ -92,12 +92,12 @@ class HomeController extends Controller
 
     public function addToCart(Request $request)
     {
-        Cart::add([
-            'id' => $request->id,
+        $item = 
+            ['id' => $request->id,
             'user_id' => $request->user_id,
             'product_id' => $request->product_id,
-            'quantity' => $request->quantity
-        ]);
+            'quantity' => $request->quantity];
+        DB::table('carts')->insert($item);
         session()->flash('success', 'Product is Added');
 
         return redirect()->route('cart.list');
