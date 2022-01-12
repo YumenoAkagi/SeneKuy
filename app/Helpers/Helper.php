@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Helpers;
 
+use App\Models\Product;
 use App\Models\User;
 
 class Helper {
