@@ -9,22 +9,25 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function showHome(){
-        $showCategory = Category::all();
-
-        return view('home', ['category' => $showCategory]);
-    }
     
     public function showProductCategory($category_id)
     {
+        $showCategory = Category::all();
         $ProductCategory = Product::join('categories', 'categories.id', '=', 'products.category_id')->where('category_id', $category_id)->get();
+        $categoryName = Category::find($category_id)->name;
 
-        return view('category', ['category' => $ProductCategory]);
+        return view('category', ['productCategories' => $ProductCategory, 'categories' => $showCategory, 'categoryName' => $categoryName]);
     }
 
-    public function showProduct(){
+    public function showHome(){
         $productList = Product::all();
-        return view('home', ['products'=>$productList]);
+        $showCategory = Category::all();
+        return view('home', ['products'=>$productList, 'categories' => $showCategory]);
+    }
+
+    public function showCategoryAboutus(){
+        $showCategory = Category::all();
+        return view('aboutus', ['categories' => $showCategory]);
     }
 
     public function showTransaction($product_id)

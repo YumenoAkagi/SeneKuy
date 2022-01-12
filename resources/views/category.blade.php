@@ -3,13 +3,13 @@
 @section('content')
 
 <div class="container">
-    <h3>Nama Category</h3>
+    <h3>{{$categoryName}}</h3>
     <div class="content d-flex mt-4">
         <div class="category-list me-4" style="width: 200px; border-right: black 1px solid;">
             <ul class="list-category">
-                <li><a class="text-decoration-none"  style="color: black" href="">Cat1</a></li>
-                <li><a class="text-decoration-none"  style="color: black" href="">Cat2</a></li>
-                <li><a class="text-decoration-none"  style="color: black" href="">Cat3</a></li>
+                @foreach($categories as $category)
+                <li><a class="text-decoration-none"  style="color: black" href="{{route('category',['categoryId'=>$category->id])}}">{{$category->name}}</li>
+                @endforeach
             </ul>
         </div>
         <div class="category-content">

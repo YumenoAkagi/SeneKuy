@@ -22,18 +22,24 @@ use App\Http\Controllers\UsersController;
 
 Route::redirect('/', '/home');
 
-// Route::get('/home', [HomeController::class , 'showHome'])->name('home.list');
-Route::get('/home', [HomeController::class, 'showProduct'])->name('home');
+Route::get('/home', [HomeController::class, 'showHome'])->name('home.list');
 
-Route::get('/category/{category_id}', [UserController::class , 'showProductCategory']);
+Route::get('/category/{categoryId}', [HomeController::class, 'showProductCategory'])->name('category');
+// Route::get('/category/{category_id}', [UserController::class , 'showProductCategory']);
 
-Route::get('/transaction/{product_id}', [UserController::class, 'showTransaction']);
+Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
 
-Route::get('/cart', [UserController::class, 'cartList'])->name('cart.list');
-Route::post('/cart', [UserController::class, 'addToCart'])->name('cart.store');
-Route::post('/update-cart', [UserController::class, 'updateCart'])->name('cart.update');
-Route::post('/remove', [UserController::class, 'removeCart'])->name('cart.remove');
-Route::post('/clear', [UserController::class, 'clearAllCart'])->name('cart.clear');
+Route::get('/cart', [HomeController::class, 'cartList'])->name('cart.list');
+Route::post('/cart', [HomeController::class, 'addToCart'])->name('cart.store');
+Route::post('/update-cart', [HomeController::class, 'updateCart'])->name('cart.update');
+Route::post('/remove', [HomeController::class, 'removeCart'])->name('cart.remove');
+Route::post('/clear', [HomeController::class, 'clearAllCart'])->name('cart.clear');
+
+// Route::get('/cart', [UserController::class, 'cartList'])->name('cart.list');
+// Route::post('/cart', [UserController::class, 'addToCart'])->name('cart.store');
+// Route::post('/update-cart', [UserController::class, 'updateCart'])->name('cart.update');
+// Route::post('/remove', [UserController::class, 'removeCart'])->name('cart.remove');
+// Route::post('/clear', [UserController::class, 'clearAllCart'])->name('cart.clear');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -44,9 +50,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/product/details/{productId}', [ProductDetailController::class, 'getProductDetails'])->name('productDetail');
 
-Route::get('/aboutus', function(){
-    return view('aboutUs');
-})->name('aboutus');
+Route::get('/aboutus', [HomeController::class, 'showCategoryAboutus'])->name('aboutus');
 
 Route::get('/shoppingcart', function(){
     return view('shoppingCart');
@@ -56,6 +60,3 @@ Route::get('/profile', function(){
     return view('profile');
 })->name('profile');
 
-Route::get('/category', function(){
-    return view('category');
-})->name('category');
