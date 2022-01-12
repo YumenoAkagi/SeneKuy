@@ -68,6 +68,10 @@ Route::get('/checkout', function(){
     return view('checkout');
 })->name('checkout');
 
+Route::get('/wishlist', function(){
+    return view('wishlist');
+})->name('wishlist');
+
 Route::get('/admin', function(){
     return view('admin');
 })->name('admin');
