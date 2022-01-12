@@ -71,3 +71,7 @@ Route::get('/admin', [HomeController::class, 'showCategoryAdmin'])->name('admin'
 Route::get('/add-product', [HomeController::class, 'showCategoryAdd'])->name('addProduct');
 
 Route::get('/delete-product', [HomeController::class, 'showCategoryDelete'])->name('deleteProduct');
+
+Route::get('/update-product', function(){
+    return view('updateProduct');
+})->name('updateProduct');
