@@ -10,7 +10,17 @@ use Illuminate\Http\Request;
 class WishlistController extends Controller
 {
 
-    public function addToWishlist(){
+    public function addToWishlist(Request $request){
+        $wl = Wishlist::firstWhere('product_id', '=', $request->id);
+
+        if($wl == null) {
+            // add to wishlist
+            $wishList = new Wishlist;
+            $wishList->user_id = Auth()->id();
+            $wishList->product_id = $request->id;
+            $wishList->save();
+        }
+
         return redirect()->route('wishlist');
     }
 
@@ -36,7 +46,18 @@ class WishlistController extends Controller
         if($selected == null)
             return back(404);
 
-        $selected->remove();
+        $selected->delete();
+
+        return back()->with('success', 'Successfully delete data');
+    }
+
+    public function deleteWishlistByProductId(Request $request) {
+        $selected = Wishlist::firstWhere('product_id', '=', $request->id);
+
+        if($selected == null)
+            return back(404);
+
+        $selected->delete();
 
         return back()->with('success', 'Successfully delete data');
     }

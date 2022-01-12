@@ -56,6 +56,8 @@ Route::middleware('auth')->group(function () {
         Route::put('cart/update/{id}', [CartController::class, 'updateCart']);
         Route::delete('/cart/delete/{id}', [CartController::class, 'removeCart']);
         Route::delete('/cart/clear', [CartController::class, 'clearAllCart']);
+        Route::get('/checkout', [CartController::class, 'showCheckoutPage'])->name('checkout');
+        Route::post('/checkout', [CartController::class, 'checkOut'])->name('checkout');
 
         Route::get('/transaction/{product_id}', [HomeController::class, 'showTransaction']);
         Route::get('/transaction-history', [TransactionController::class, 'showCategorytransactionHistory'])->name('transaction-history');
@@ -63,7 +65,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('wishlist');
         Route::post('/wishlist/add/{id}', [WishlistController::class, 'addToWishlist']);
         Route::delete('/wishlist/delete/{id}', [WishlistController::class, 'deleteWishlist']);
-        Route::get('/checkout', [HomeController::class, 'showCategoryCheckout'])->name('checkout');
+        Route::delete('/wishlist/deleteByProduct/{id}', [WishlistController::class, 'deleteWishlistByProductId']);
     });
 
 

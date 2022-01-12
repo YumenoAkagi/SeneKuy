@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\TransactionDetail;
+use App\Models\TransactionHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -51,7 +53,7 @@ class CartController extends Controller
 
         session()->flash('success', 'Cart is Updated');
 
-        return redirect()->route('cart.list');
+        return back();
     }
 
     public function removeCart(Request $request)
@@ -75,6 +77,54 @@ class CartController extends Controller
         session()->flash('success', 'All cart is clear');
 
         return back();
+    }
+
+    public function showCheckoutPage() {
+        $showCategory = Category::all();
+        $total = 0;
+
+        $shoppingCart = Cart::where('user_id', '=', Auth()->id())->get();
+        $products = collect();
+
+        foreach($shoppingCart as $sc) {
+            $pr = Product::find($sc->product_id);
+            $products->push($pr);
+            $total += $pr->price * $sc->quantity;
+        }
+
+        $params['carts'] = $shoppingCart;
+        $params['categories'] = $showCategory;
+        $params['products'] = $products;
+        $params['totalPrice'] = $total;
+        
+        return view('checkout', $params);
+    }
+
+    public function checkOut() {
+        
+        $carts = Cart::where('user_id', '=', Auth()->id())->get();
+
+        if(count($carts) <= 0)
+            return back();
+
+        // add new transaction header
+        $th = new TransactionHeader;
+        $th->user_id = Auth()->id();
+        $th->save();
+
+        foreach($carts as $cart) {
+            // add to new transaction detail
+            $td = new TransactionDetail;
+            $td->transaction_id = $th->id;
+            $td->product_id = $cart->product_id;
+            $td->quantity = $cart->quantity;
+            $td->save();
+
+            // delete cart
+            $cart->delete();
+        }
+
+        return redirect('/home');
     }
 
     public function showShoppingCart(){
