@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('wishlist');
         Route::post('/wishlist/add/{id}', [WishlistController::class, 'addToWishlist']);
         Route::delete('/wishlist/delete/{id}', [WishlistController::class, 'deleteWishlist']);
+        Route::delete('/wishlist/deleteByProduct/{id}', [WishlistController::class, 'deleteWishlistByProductId']);
         Route::get('/checkout', [HomeController::class, 'showCategoryCheckout'])->name('checkout');
     });
 

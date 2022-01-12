@@ -21,10 +21,19 @@
                         <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
                         <button type="submit" class="btn btn-danger">Add to cart</button>
                     </form>
+                    @if (Helper::isAddedToWishlist($product->id))
+                    <form action="/wishlist/deleteByProduct/{{$product->id}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">Remove from wishlist</button>
+                    </form>
+                    @else
                     <form action="/wishlist/add/{{$product->id}}" method="post">
                         @csrf
                         <button type="submit" class="btn btn-danger">Add to wishlist</button>
                     </form>
+                    @endif
+                    
 
                     {{-- for Admin --}}
                     {{-- <span class="deleteProduct" style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em;">
