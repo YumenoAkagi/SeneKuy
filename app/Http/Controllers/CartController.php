@@ -51,7 +51,7 @@ class CartController extends Controller
 
         session()->flash('success', 'Cart is Updated');
 
-        return redirect()->route('cart.list');
+        return back();
     }
 
     public function removeCart(Request $request)
@@ -75,6 +75,43 @@ class CartController extends Controller
         session()->flash('success', 'All cart is clear');
 
         return back();
+    }
+
+    public function showCheckoutPage() {
+        $showCategory = Category::all();
+        $total = 0;
+
+        $shoppingCart = Cart::where('user_id', '=', Auth()->id())->get();
+        $products = collect();
+
+        foreach($shoppingCart as $sc) {
+            $pr = Product::find($sc->product_id);
+            $products->push($pr);
+            $total += $pr->price * $sc->quantity;
+        }
+
+        $params['carts'] = $shoppingCart;
+        $params['categories'] = $showCategory;
+        $params['products'] = $products;
+        $params['totalPrice'] = $total;
+        
+        return view('checkout', $params);
+    }
+
+    public function checkOut() {
+        
+        $carts = Cart::where('user_id', '=', Auth()->id())->get();
+
+        // add new transaction header
+
+        foreach($carts as $cart) {
+            // add to new transaction detail
+
+            // delete cart
+            $cart->delete();
+        }
+
+        return redirect('/home');
     }
 
     public function showShoppingCart(){
