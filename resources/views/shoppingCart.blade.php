@@ -19,9 +19,13 @@
                         <p>{{ $products[$i]->price * $carts[$i]->quantity }}</p>
                     </div>
                     <div>
-                        <button class="bg-danger" style="color: white; border-radius: 5px; border: none">Delete</button>
+                        <form action="/cart/delete/{{ $carts[$i]->id }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="bg-danger" style="color: white; border-radius: 5px; border: none">Delete</button>
+                        </form>
                         {{-- quantity --}}
-                        <p class="pt-3 text-center">x3</p>
+                        <p class="pt-3 text-center">x{{ $carts[$i]->quantity }}</p>
                     </div>
                 </div>
                 </div>
