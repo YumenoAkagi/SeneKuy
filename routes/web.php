@@ -69,6 +69,10 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::get('update-product', function(){
+Route::get('/update-product', function(){
     return view('updateProduct');
 })->name('updateProduct');
+
+Route::get('/update-product/{product_id}', function(){
+    return view('updateProductDetail');
+})->name('updateProductDetail');
