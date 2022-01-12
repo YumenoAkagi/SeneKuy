@@ -13,7 +13,6 @@
                             <div class="card-body">
                                 <div class="product-image-card d-flex justify-content-center mb-2">
                                     <img src="{{asset($product->imgPath)}}" alt="" class="img-thumbnail img-fluid">
-                                    {{-- <img src="/assets/beverage/{{$product->imgPath}}" alt="" class="img-thumbnail img-fluid"> --}}
                                 </div>
                                 <div class="product-detail-card">
                                     <strong class="mb-1">{{$product->name}}</strong>

@@ -82,13 +82,13 @@ class ProductsSeeder extends Seeder
                 'category_id' => '2',
                 'name' => 'Big Caramel Pudding',
                 'price' => 200000,
-                'imgPath' => 'assets/snack/caramel_pudding.png'
+                'imgPath' => 'assets/dessert/caramel_pudding.png'
             ],
             [
                 'category_id' => '2',
                 'name' => 'Strawberry Gelatin Dessert',
                 'price' => 50000,
-                'imgPath' => 'assets/dessert/sandwich.png'
+                'imgPath' => 'assets/dessert/gelatin_dessert.png'
             ],
             [
                 'category_id' => '2',
