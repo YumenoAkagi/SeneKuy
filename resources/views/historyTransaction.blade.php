@@ -20,12 +20,12 @@
                         <p>{{$products[$i]->price}}</p>
                     </div>
                     <div>
-                        <p class="pt-3 text-center">{{$histories[$i]->quantity}}</p>
+                        <p class="pt-3 text-center">{{$transaction_details[$i]->quantity}}</p>
                     </div>
                 </div>
                 </div>
             </div>
-            <strong class="d-flex justify-content-end me-3">Total : Rp {{$products[$i]->price}}</strong>
+            <strong class="d-flex justify-content-end me-3">Total : Rp {{$products[$i]->price * $transaction_details[$i]->quantity}}</strong>
         </div>
     @endfor
 @else
