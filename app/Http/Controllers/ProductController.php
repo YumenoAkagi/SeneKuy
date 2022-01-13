@@ -26,6 +26,10 @@ class ProductController extends Controller
         return view('addProduct', ['categories' => $showCategory]);
     }
 
+    public function addProduct(){
+        return redirect('/home');
+    }
+
     public function showDeleteProductPage(){
         $showCategory = Category::all();
         return view('deleteProduct', ['categories' => $showCategory]);
