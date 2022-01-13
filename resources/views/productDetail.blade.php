@@ -12,6 +12,16 @@
                 Rp. {{$product->price}}
                 
                 <div class="button mt-5 d-flex">
+                    
+
+                    @if (Auth()->user()->role_id === Helper::getAdminRoleId()) {{--Untuk admin--}}
+                    {{-- for Admin --}}
+                    <form action="" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete Product</button>
+                    </form>
+                    @endif
+
                     {{-- for Customer --}}
                     @if (Auth()->user()->role_id === Helper::getCustomerRoleId())
                         <form action="/cart/add/{{$product->id}}" method="post">
