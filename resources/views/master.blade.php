@@ -47,9 +47,9 @@
                 ADMIN
               </button>
               <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Add Product</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Logout</a></li>
+                <li><a class="dropdown-item" href="{{route('addProduct')}}">Add Product</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Logout</a></li>
               </ul>
             </div>
           </div>
