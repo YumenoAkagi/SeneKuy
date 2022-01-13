@@ -15,6 +15,14 @@ class CartController extends Controller
 {
     public function addToCart(Request $request)
     {
+        $pr = Product::find($request->id);
+
+        if($pr == null)
+            return back(404);
+
+        if($pr->stock <= 0)
+            return back()->with('error', 'Stock Empty!');
+
         $validator = Validator::make($request->all(), [
             'quantity' => 'required'
         ]);
@@ -22,6 +30,12 @@ class CartController extends Controller
         if($validator->fails()){
             return back()->withErrors($validator);
         }
+
+        if($pr->stock - $request->quantity < 0)
+            return back()->with('error', 'Cannot exceed stock left');
+
+        $pr->stock -= $request->quantity;
+        $pr->save();
 
         $exists = Cart::firstWhere('product_id', '=', $request->id);
 
@@ -63,6 +77,9 @@ class CartController extends Controller
         if($selected == null)
             return back(404);
 
+        $pr = Product::find($selected->product_id);
+        $pr->stock += $selected->quantity;
+        $pr->save();
         $selected->delete();
 
         session()->flash('success', 'Cart is Removed');

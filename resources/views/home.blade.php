@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="product-detail-card">
                                     <strong class="mb-1">{{$product->name}}</strong>
-                                    <p class="m-0">Rp. {{$product->price}}</p>
+                                    <p class="m-0">Rp. {{number_format($product->price, 0)}}</p>
                                 </div>
                             </div>
                         </a>

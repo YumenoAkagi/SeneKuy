@@ -40,4 +40,17 @@ class ProductController extends Controller
 
         return redirect('/home')->with('success', 'Item successfully deleted.');
     }
+
+    public function updateQty(Request $request) {
+        $selected = Product::find($request->id);
+
+        if($selected == null) {
+            return back(404);
+        }
+
+        $selected->stock = $request->stock;
+        $selected->save();
+
+        return back()->with('success', 'Successfully update stock.');
+    }
 }
