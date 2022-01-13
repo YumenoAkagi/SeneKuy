@@ -21,7 +21,7 @@
             <div class="card login-card">
                 <div class="row no-gutters">
                     <div class="col-md-5">
-                        <img src="{{ Storage::url('public/SnackVariety_Lead.jpg') }}" alt="" srcset="" class="img-fluid">
+                        <img class="img-fluid" src="assets/Logo/product.png" alt="">
                     </div>
     
                     <div class="col-md-7">

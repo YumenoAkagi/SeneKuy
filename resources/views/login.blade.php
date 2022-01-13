@@ -27,13 +27,12 @@
             <div class="card login-card">
                 <div class="row no-gutters">
                     <div class="col-md-5">
-                        <img src="{{ Storage::url('public/SnackVariety_Lead.jpg') }}" alt="" srcset="" class="img-fluid">
+                        <img class="img-fluid" src="assets/Logo/product.png" alt="" style="padding: 1em;">
                     </div>
     
                     <div class="col-md-7">
                         <div class="card-body">
                             <div class="logo">
-    
                             </div>
                             <h3 class="mb-4">Sign into your account</h3>
                             <form action="\login" method="POST">
