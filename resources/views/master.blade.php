@@ -74,7 +74,8 @@
                   <li><a class="dropdown-item" href="{{route('transaction-history')}}">History Transaction</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <form action="{{route('logout')}}" method="post">
-                    <li><a class="dropdown-item fw-bold" href="">Logout</a></li>
+                    @csrf
+                    <li><button type="submit" class="dropdown-item fw-bold">Logout</button></li>
                   </form>
               </ul>
             </div>
