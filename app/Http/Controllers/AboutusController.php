@@ -10,7 +10,7 @@ class AboutusController extends Controller
     
     public function showCategoryAboutus(){
         $showCategory = Category::all();
-        return view('aboutus', ['categories' => $showCategory]);
+        return view('aboutUs', ['categories' => $showCategory]);
     }
     
 }
