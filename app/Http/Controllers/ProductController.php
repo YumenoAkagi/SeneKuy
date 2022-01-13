@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,12 +21,21 @@ class ProductController extends Controller
         return view('category', ['productCategories' => $productCategory, 'categories' => $showCategory, 'categoryName' => $categoryName]);
     }
 
-    public function showCategoryAdd(){
+    public function showAddProductPage(){
         $showCategory = Category::all();
         return view('addProduct', ['categories' => $showCategory]);
     }
 
-    public function showCategoryDelete(){
+    public function showDeleteProductPage(){
+        $showCategory = Category::all();
+        return view('deleteProduct', ['categories' => $showCategory]);
+    }
+
+    public function deleteProduct(Request $request){
+        $selected = Product::firstWhere('id', '=', $request->id);
+        if($selected == null)
+            return back(404);
+        $selected->delete();
         $showCategory = Category::all();
         return view('deleteProduct', ['categories' => $showCategory]);
     }

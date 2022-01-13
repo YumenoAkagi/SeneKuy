@@ -72,8 +72,9 @@ Route::middleware('auth')->group(function () {
     // ADMIN SECTION HERE
     Route::middleware('admin')->group(function() {
         Route::get('/admin', [ProfileController::class, 'showCategoryAdmin'])->name('admin');
-        Route::get('/add-product', [ProductController::class, 'showCategoryAdd'])->name('addProduct');
-        Route::get('/delete-product', [ProductController::class, 'showCategoryDelete'])->name('deleteProduct');
+        Route::get('/add-product', [ProductController::class, 'showAddProductPage'])->name('addProductPage');
+        Route::post('/add-product', [ProductController::class, 'addProduct'])->name('addProduct');
+        Route::get('/delete-product', [ProductController::class, 'showDeleteProductPage'])->name('deleteProduct');
     });
 });
 

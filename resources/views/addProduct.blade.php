@@ -15,6 +15,8 @@
     <input class="mb-2 " type="number" name="price" id="" placeholder="Price">
     <input class="mb-2 " type="number" name="Stock" id="" placeholder="Stock">
     <input class="mb-5 " type="file" name="image" id="">
-    <button class="btn btn-dark">Add product</button>
+    <form action="{{route('addProduct')}}" method="post">
+        <button class="btn btn-dark" type="submit">Add product</button>
+    </form>
 </body>
 </html>

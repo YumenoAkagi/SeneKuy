@@ -49,7 +49,7 @@
                 ADMIN
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{route('addProduct')}}">Add Product</a></li>
+                <li><a class="dropdown-item" href="{{route('addProductPage')}}">Add Product</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <form action="{{route('logout')}}" method="post">
                   @csrf
