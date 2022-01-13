@@ -13,21 +13,30 @@
                 
                 <div class="button mt-5 d-flex">
                     {{-- for Customer --}}
-                    <form action="/cart/add/{{$product->id}}" method="post">
-                        @csrf
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
-                        <button type="submit" class="btn btn-danger">Add to cart</button>
-                    </form>
-                    @if ()
-                        
+                    @if (Auth()->user()->role_id === Helper::getCustomerRoleId())
+                        <form action="/cart/add/{{$product->id}}" method="post">
+                            @csrf
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
+                            <button type="submit" class="btn btn-danger">Add to cart</button>
+                        </form>
+
+                        @if (Helper::isAddedToWishlist($product->id))
+                        <form action="/wishlist/deleteByProduct/{{$product->id}}" method="post" class="ms-2">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Remove from wishlist</button>
+                        </form>
+                        @else
+                        <form action="/wishlist/add/{{$product->id}}" method="post" class="ms-2">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Add to wishlist</button>
+                        </form>
+                        @endif
                     @else
                         
                     @endif
-                    <form action="/wishlist/add/{{$product->id}}" method="post" class="ms-2">
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Add to wishlist</button>
-                    </form>
+                    
 
 
                         {{-- for Admin --}}

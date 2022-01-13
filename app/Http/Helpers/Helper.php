@@ -16,8 +16,8 @@ class Helper {
     }
 
     public static function isAddedToWishlist($id) {
-        $wl = Wishlist::firstWhere('product_id', '=', $id);
-        if($wl == null) {
+        $wl = Wishlist::where('product_id', '=', $id)->where('user_id', '=', Auth()->id())->get();
+        if(count($wl) <= 0) {
             return false;
         } 
         return true;
