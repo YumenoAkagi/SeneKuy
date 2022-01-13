@@ -12,6 +12,17 @@
                 Rp. {{$product->price}}
                 
                 <div class="button mt-5 d-flex">
+                    
+
+                    @if (Auth()->user()->role_id === Helper::getAdminRoleId()) {{--Untuk admin--}}
+                    {{-- for Admin --}}
+                    <form action="" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete Product</button>
+                    </form>
+                    @endif
+
+                    @if (Auth()->user()->role_id === Helper::getCustomerRoleId()) {{--Untuk customer--}}
                     {{-- for Customer --}}
                     <form action="/cart/add/{{$product->id}}" method="post">
                         @csrf
@@ -19,23 +30,12 @@
                         <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
                         <button type="submit" class="btn btn-danger">Add to cart</button>
                     </form>
-                    @if ()
-                        
-                    @else
-                        
-                    @endif
                     <form action="/wishlist/add/{{$product->id}}" method="post" class="ms-2">
                         @csrf
                         <button type="submit" class="btn btn-danger">Add to wishlist</button>
                     </form>
-
-
-                        {{-- for Admin --}}
-                        {{-- <span class="deleteProduct"
-                            style="border-radius: 5px; background-color: pink; padding: 1em; margin: 1em;">
-                            <a href="#" style="text-decoration: none; color: black;">Delete Product</a>
-                        </span> --}}
-
+                    @endif
+                    
                     </div>
                 </div>
             </div>

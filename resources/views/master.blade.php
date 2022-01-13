@@ -13,7 +13,9 @@
   
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
       <div class="container">
-        <a class="navbar-brand" href="{{route('home.list')}}">Snekku Logo</a>
+        <a class="navbar-brand" href="{{route('home.list')}}">
+          <img src="https://cdn.discordapp.com/attachments/924541500782706708/930995615129821185/LOGO.png" alt="snekkuLogo" style="width: 150px">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
