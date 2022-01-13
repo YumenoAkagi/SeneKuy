@@ -73,7 +73,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('admin')->group(function() {
         Route::get('/admin', [ProfileController::class, 'showCategoryAdmin'])->name('admin');
         Route::get('/add-product', [ProductController::class, 'showAddProductPage'])->name('addProductPage');
-        Route::post('/add-product', [ProductController::class, 'addProduct'])->name('addProduct');
+        Route::post('/add-product', [ProductController::class, 'addProduct']);
         Route::put('/product/updateQty/{id}', [ProductController::class, 'updateQty']);
         Route::delete('/product/delete/{id}', [ProductController::class, 'deleteProduct']);
     });

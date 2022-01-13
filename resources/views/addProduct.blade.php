@@ -11,11 +11,19 @@
 </head>
 <body class="p-5 d-flex flex-column">
     <h1 class="mb-5 text-center">Add product</h1>
-    <input class="mb-2 " type="text" name="name" id="" placeholder="Product name">
-    <input class="mb-2 " type="number" name="price" id="" placeholder="Price">
-    <input class="mb-2 " type="number" name="Stock" id="" placeholder="Stock">
-    <input class="mb-5 " type="file" name="image" id="">
-    <form action="{{route('addProduct')}}" method="post">
+    
+    <form action="/add-product" method="post" enctype="multipart/form-data">
+        @csrf
+        <input class="mb-2 form-control" type="text" name="name" id="" placeholder="Product name">
+        <select class="mb-2 form-select" name="category_id" id="category_id">
+            <option value="">-- Select Category</option>
+            @foreach ($categories as $cat)
+                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+            @endforeach
+        </select>
+        <input class="mb-2 form-control" type="number" name="price" id="price" placeholder="Price">
+        <input class="mb-2 form-control" type="number" name="stock" id="stock" placeholder="Stock">
+        <input class="mb-5 form-control" type="file" name="image" id="image">
         <button class="btn btn-dark" type="submit">Add product</button>
     </form>
 </body>
