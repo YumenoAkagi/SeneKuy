@@ -49,7 +49,10 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{route('addProduct')}}">Add Product</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item fw-bold" href="{{route('login')}}">Logout</a></li>
+                <form action="{{route('logout')}}" method="post">
+                  @csrf
+                  <li><button type="submit" class="dropdown-item fw-bold">Logout</button></li>
+                </form>
               </ul>
             </div>
           </div>

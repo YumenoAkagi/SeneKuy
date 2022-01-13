@@ -19,6 +19,11 @@
                         <input type="number" id="quantity" name="quantity" min="1" max="5" class="me-4">
                         <button type="submit" class="btn btn-danger">Add to cart</button>
                     </form>
+                    @if ()
+                        
+                    @else
+                        
+                    @endif
                     <form action="/wishlist/add/{{$product->id}}" method="post" class="ms-2">
                         @csrf
                         <button type="submit" class="btn btn-danger">Add to wishlist</button>
