@@ -30,17 +30,14 @@ class ProductController extends Controller
         return redirect('/home');
     }
 
-    public function showDeleteProductPage(){
-        $showCategory = Category::all();
-        return view('deleteProduct', ['categories' => $showCategory]);
-    }
-
     public function deleteProduct(Request $request){
-        $selected = Product::firstWhere('id', '=', $request->id);
+        $selected = Product::find($request->id);
+
         if($selected == null)
             return back(404);
+
         $selected->delete();
-        $showCategory = Category::all();
-        return view('deleteProduct', ['categories' => $showCategory]);
+
+        return redirect('/home')->with('success', 'Item successfully deleted.');
     }
 }

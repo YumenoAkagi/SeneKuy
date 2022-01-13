@@ -16,9 +16,10 @@
 
                     @if (Auth()->user()->role_id === Helper::getAdminRoleId()) {{--Untuk admin--}}
                     {{-- for Admin --}}
-                    <form action="" method="post">
+                    <form action="/product/delete/{{ $product->id }}" method="post">
                         @csrf
-                        <button type="submit" class="btn btn-danger">Delete Product</button>
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this product?')">Delete Product</button>
                     </form>
                     @endif
 
@@ -43,8 +44,6 @@
                             <button type="submit" class="btn btn-danger">Add to wishlist</button>
                         </form>
                         @endif
-                    @else
-                        
                     @endif
                     
 
