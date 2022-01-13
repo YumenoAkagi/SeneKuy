@@ -17,15 +17,15 @@
                 <div class="content-body d-flex justify-content-between" style="width: 1000px">
                     <div>
                         <p class="fw-bold">{{$products[$i]->name}}</p>
-                        <p>{{$products[$i]->price}}</p>
+                        <p>Rp.{{number_format($products[$i]->price,0)}}</p>
                     </div>
                     <div>
-                        <p class="pt-3 text-center">{{$transaction_details[$i]->quantity}}</p>
+                        <p class="pt-3 text-center">x{{$transaction_details[$i]->quantity}}</p>
                     </div>
                 </div>
                 </div>
             </div>
-            <strong class="d-flex justify-content-end me-3">Total : Rp {{$products[$i]->price * $transaction_details[$i]->quantity}}</strong>
+            <strong class="d-flex justify-content-end me-3">Total : Rp.{{number_format($products[$i]->price * $transaction_details[$i]->quantity,0)}}</strong>
         </div>
     @endfor
 @else

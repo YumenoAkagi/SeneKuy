@@ -16,7 +16,7 @@
                 <div class="content-body d-flex justify-content-between" style="width: 1000px">
                     <div>
                         <p class="fw-bold">{{ $products[$i]->name }}</p>
-                        <p>{{ $products[$i]->price * $carts[$i]->quantity }}</p>
+                        <p>Rp. {{ number_format($products[$i]->price * $carts[$i]->quantity, 0) }}</p>
                     </div>
                     <div>
                         <form action="/cart/delete/{{ $carts[$i]->id }}" method="post">
@@ -38,7 +38,7 @@
 
 
         <div class="d-flex justify-content-end align-items-center mb-3" >
-            <p class="fw-bold pe-4 m-0">Total : Rp {{ $totalPrice }}</p>
+            <p class="fw-bold pe-4 m-0">Total : Rp {{ number_format($totalPrice,0) }}</p>
             <a href="/checkout" class="btn btn-dark">Checkout</a>
         </div>
 

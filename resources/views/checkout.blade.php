@@ -20,11 +20,11 @@
                 <div class="content-body d-flex justify-content-between align-items-end" style="width: 100%">
                     <div>
                         <p class="fw-bold">{{ $products[$i]->name }}</p>
-                        <p class="m-0">{{ $products[$i]->price }} <span>x {{ $carts[$i]->quantity }}</span></p>
+                        <p class="m-0">Rp.{{ number_format($products[$i]->price,0) }} <span>x {{ $carts[$i]->quantity }}</span></p>
                     </div>
                         <div>
                         {{-- quantity --}}
-                            <p class="m-0">{{ $products[$i]->price * $carts[$i]->quantity }}</p>
+                            <p class="m-0">Rp.{{ number_format($products[$i]->price * $carts[$i]->quantity,0) }}</p>
                         </div>
                     </div>
              </div>
@@ -49,7 +49,7 @@
             <div class="d-flex justify-content-between">
                 <div>
                     <h6 class="mb-1">Total bayar</h6>
-                    <h4 class="m-0">{{ $totalPrice }}</h4>
+                    <h4 class="m-0">Rp.{{ number_format($totalPrice, 0) }}</h4>
                 </div>
 
                 <form action="/checkout" method="post">
