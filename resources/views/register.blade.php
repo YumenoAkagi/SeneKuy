@@ -21,7 +21,7 @@
             <div class="card login-card">
                 <div class="row no-gutters">
                     <div class="col-md-5">
-                        <img class="img-fluid" src="assets/Logo/product.png" alt="">
+                        <img class="img-fluid" src="{{asset('assets/Logo/product.png')}}" alt="" style="object-fit:cover">
                     </div>
     
                     <div class="col-md-7">
